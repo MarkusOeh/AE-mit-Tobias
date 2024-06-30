@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace TODO_App
+﻿namespace TESTZUMAUSFÜHREN
 {
     internal class Program
     {
@@ -13,9 +11,7 @@ namespace TODO_App
 
 
             // -------- Hausaufgabe ----------
-            // Liste ausgeben in eine Funktion gepackt
-            // Wird später bei Case 2 3 4 benutzt
-            void ZeugAuflisten() 
+            void ZeugAuflisten() // Eine Funktion erstellt damit wir das nicht bei Case 2,3,4 immer machen müssen
             {
                 for (int i = 0; i < todos.Count; i++)
                 {
@@ -75,6 +71,7 @@ namespace TODO_App
                         break;
                 }
             } while (true);
+
         }
     }
 }
