@@ -26,14 +26,15 @@ namespace TODO_App
                 switch (input)
                 {
                     case "1":
+                        // ToDo hinzufügen
                         Console.WriteLine("Was hast du zu tun? <Enter zum bestätigen>");
                         var todo = Console.ReadLine();
 
-                        // Fügen wir das Todo hinzu
                         todos.Add(todo);
                         Console.WriteLine("Todo hinzugefügt: " + todo);
                         break;
                     case "2":
+                        // Liste der ToDos ausgeben
                         Console.WriteLine("Du hast folgende Aufgaben:");
                         for (int i = 0; i < todos.Count; i++)
                         {
@@ -43,7 +44,7 @@ namespace TODO_App
                         Console.ReadKey();
                         break;
                     case "3":
-                        // Löschen
+                        // Einzelnes ToDo Löschen
                         Console.WriteLine("Welches Todo möchtest du löschen?");
                         for (int i = 0; i < todos.Count; i++)
                         {
@@ -54,7 +55,7 @@ namespace TODO_App
                         todos.RemoveAt(todoIndex);
                         break;
                     case "4":
-                        // Updaten/Verändern eines Todos (verändern des strings)
+                        // Überschreiben eines ToDos
                         Console.WriteLine("Welches Todo möchtest du anpassen?");
                         for (int i = 0; i < todos.Count; i++)
                         {
