@@ -10,29 +10,19 @@ namespace TODO_App
 
             List<string> todos = new();
 
-            int getIndex(string prompt) // Funktionssignatur
-            {
-                Console.WriteLine(prompt);
-                var input = Console.ReadLine();
-                var number = int.Parse(input);
-                return number;
-            }
+            List<string> printTodos = new();
+            printTodos.Add("Du hast folgende Aufgaben:");
+            printTodos.Add("Welches Todo möchtest du löschen?");
+            printTodos.Add("Welche Nummer soll überschieben werden?");
 
-            
-
-            // -------- Hausaufgabe ----------
-            // Liste ausgeben in eine Funktion gepackt
-            // Wird später bei Case 2 3 4 benutzt
-            void ZeugAuflisten() 
+            void ToDoListe(string printTodos)
             {
-                Console.WriteLine("Welche Nummer soll überschieben werden?");
+                Console.WriteLine(printTodos);
                 for (int i = 0; i < todos.Count; i++)
                 {
                     Console.WriteLine($"\t{i}. {todos[i]}");
                 }
             }
-            // -------------------------------
-
 
             do
             {
@@ -52,32 +42,22 @@ namespace TODO_App
                         break;
                     case "2":
                         //Liste anzeigen
-                        Console.WriteLine("Du hast folgende Aufgaben:");
-
-                        ZeugAuflisten();
-
+                        ToDoListe(printTodos[0]);
                         Console.WriteLine("Drücke <ENTER> um zurück ins Menü zu kommen.");
                         Console.ReadKey();
                         break;
                     case "3":
                         // Löschen
-                        Console.WriteLine("Welches Todo möchtest du löschen?");
-
-                        ZeugAuflisten();
-                        var todoIndex1 = getIndex("Welches Todo möchtest du löschen?");
+                        ToDoListe(printTodos[1]);
                         var todoIndexString = Console.ReadLine();
                         int todoIndex = int.Parse(todoIndexString);
                         todos.RemoveAt(todoIndex);
                         break;
                     case "4":
                         // Überschreiben
-                        Console.WriteLine("Welche Nummer soll überschieben werden?");
-
-                        ZeugAuflisten();
-
+                        ToDoListe(printTodos[2]);
                         var indexString = Console.ReadLine();
                         int index = int.Parse(indexString);
-
                         Console.WriteLine("Was möchtest du stattdessen tun?");
                         var newTodo = Console.ReadLine();
                         todos[index] = newTodo;
