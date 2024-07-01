@@ -10,15 +10,23 @@
 
 
 
-            // -------- Hausaufgabe ----------
-            void ZeugAuflisten() // Eine Funktion erstellt damit wir das nicht bei Case 2,3,4 immer machen müssen
+            // -------- Hausaufgabe -----------------------------
+            // Liste ausgeben in eine Funktion gepackt
+            // Wird später bei Case 2 3 4 benutzt
+            void ToDoListe(string Konsolenausgabe)
             {
+                Console.WriteLine(Konsolenausgabe);
                 for (int i = 0; i < todos.Count; i++)
                 {
                     Console.WriteLine($"\t{i}. {todos[i]}");
                 }
             }
-            // -------------------------------
+            List <string> Konsolenausgabe = new();
+            Konsolenausgabe.Add("Du hast folgende Aufgaben:");
+            Konsolenausgabe.Add("Welches Todo möchtest du löschen?");
+            Konsolenausgabe.Add("Welche Nummer soll überschieben werden?");
+            // -------------------------------------------------
+            // -------------------------------------------------
 
 
             do
@@ -39,18 +47,14 @@
                         break;
                     case "2":
                         //Liste anzeigen
-                        Console.WriteLine("Du hast folgende Aufgaben:");
-
-                        ZeugAuflisten();
+                        ToDoListe(Konsolenausgabe[0]);
 
                         Console.WriteLine("Drücke <ENTER> um zurück ins Menü zu kommen.");
                         Console.ReadKey();
                         break;
                     case "3":
                         // Löschen
-                        Console.WriteLine("Welches Todo möchtest du löschen?");
-
-                        ZeugAuflisten();
+                        ToDoListe(Konsolenausgabe[1]);
 
                         var todoIndexString = Console.ReadLine();
                         int todoIndex = int.Parse(todoIndexString);
@@ -58,9 +62,7 @@
                         break;
                     case "4":
                         // Überschreiben
-                        Console.WriteLine("Welche Nummer soll überschieben werden?");
-
-                        ZeugAuflisten();
+                        ToDoListe(Konsolenausgabe[2]);
 
                         var indexString = Console.ReadLine();
                         int index = int.Parse(indexString);

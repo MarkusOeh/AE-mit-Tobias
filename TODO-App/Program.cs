@@ -10,13 +10,22 @@ namespace TODO_App
 
             List<string> todos = new();
 
+            int getIndex(string prompt) // Funktionssignatur
+            {
+                Console.WriteLine(prompt);
+                var input = Console.ReadLine();
+                var number = int.Parse(input);
+                return number;
+            }
 
+            
 
             // -------- Hausaufgabe ----------
             // Liste ausgeben in eine Funktion gepackt
             // Wird später bei Case 2 3 4 benutzt
             void ZeugAuflisten() 
             {
+                Console.WriteLine("Welche Nummer soll überschieben werden?");
                 for (int i = 0; i < todos.Count; i++)
                 {
                     Console.WriteLine($"\t{i}. {todos[i]}");
@@ -55,7 +64,7 @@ namespace TODO_App
                         Console.WriteLine("Welches Todo möchtest du löschen?");
 
                         ZeugAuflisten();
-
+                        var todoIndex1 = getIndex("Welches Todo möchtest du löschen?");
                         var todoIndexString = Console.ReadLine();
                         int todoIndex = int.Parse(todoIndexString);
                         todos.RemoveAt(todoIndex);
